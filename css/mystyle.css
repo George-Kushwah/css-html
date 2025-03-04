@@ -1,0 +1,181 @@
+.aa1 {
+  width: 200px;
+  height: 200px;
+  border: 1px #000 solid;
+  background: red;
+  animation: ani1 1s 0s infinite linear;
+  margin-top: 25px;
+}
+@keyframes ani1 {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate3d(2, 6, 8, 360deg);
+  }
+}
+.aa2 {
+  counter-reset: my-con 0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 12px;
+}
+.aa2 h3:after {
+  content: " " counter(my-con, lower-roman) "  ";
+  counter-increment: my-con 1;
+}
+.aa3 div:nth-child(3n + 2) {
+  color: blue;
+}
+/* .aa3 div:nth-child(-n + 5) {
+  color: red;
+  font-weight: 700;
+} */
+.aa4 p {
+  font-weight: 700;
+  color: #000;
+}
+.aa4 p:not(.kk) {
+  font-weight: 100;
+}
+.aa5 {
+  width: 100px;
+  height: 100px;
+  background: #ccc;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 50%;
+}
+.aa6 {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+}
+.aa6 div {
+  width: 200px;
+  height: 200px;
+  background: #000;
+}
+.aa7 {
+  width: 200px;
+  height: 200px;
+  background: #ccc;
+  box-sizing: border-box;
+  border: 10px #000 solid;
+}
+.aa8 a[href^="dc"] {
+  font-weight: 700;
+  color: red !important;
+}
+.aa8 a[href$=".html"] {
+  font-weight: 700;
+  color: green !important;
+}
+/* ---------------------New feature ------------- 
+
+1.Nesting
+2.:has()
+3. is() having high specificity
+4.where()
+5.text-wrap: balance
+6.  color-mix()
+7. Container
+*/
+
+.aa9 {
+  & p {
+    color: blue;
+    font-weight: 700;
+  }
+  & a {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: red;
+    }
+  }
+  & .dc {
+    color: red;
+  }
+}
+.aa10 {
+  font-size: 12px;
+}
+.aa10:has(p) {
+  color: red;
+  background: #ccc;
+  padding: 10px;
+}
+.aa10 div:has(a) {
+  background: #6f3737;
+  padding: 10px;
+}
+.aa11 :is(p, h1, h3, a) {
+  color: rgb(15, 150, 195);
+}
+.aa12 :where(p, h1, h3) {
+  color: rgba(196, 22, 231, 0.378);
+}
+.aa13 h1 {
+  text-wrap: balance;
+}
+.aa14 {
+  background: color-mix(in oklab, red 90%, #fff 10%);
+  padding: 50px;
+}
+.aa15 {
+  display: grid;
+  grid-template-columns: auto auto auto;
+  container-type: inline-size;
+  background: #ccc;
+  padding: 10px;
+  & div {
+    background: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    border: 2px #000 solid;
+  }
+  & div[data-item="true"] {
+    background: red;
+    @container (min-width:992px) {
+      background-color: #6f3737;
+    }
+  }
+}
+.ss1 {
+  padding: 300px;
+  background: #000 url("wae_sec2_bg.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+.ss2 {
+  padding: 300px;
+  background: #fff;
+}
+@property --box-color {
+  syntax: "<color>";
+  inherits: false;
+  initial-value: yellow;
+}
+.box {
+  background-color: var(--box-color);
+  width: 150px;
+  height: 100px;
+}
+.box-1 {
+  --box-color: red;
+}
+.box-2 {
+  --box-color: rgb(20, 201, 198);
+}
+.resize1 {
+  width: 150px;
+  height: 200px;
+  background-color: #ccc;
+  resize: horizontal;
+  overflow: auto;
+}
