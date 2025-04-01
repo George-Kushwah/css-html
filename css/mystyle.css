@@ -1,3 +1,19 @@
+.ed1 {
+  transition: all 2s 0s;
+  width: 200px;
+  height: 200px;
+  background: #000;
+  cursor: pointer;
+  & p {
+    color: #ccc;
+    font-size: 25px;
+  }
+  &:hover {
+    background: #b72929;
+    transform: rotate(70deg);
+  }
+}
+
 .aa1 {
   width: 200px;
   height: 200px;
